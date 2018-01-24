@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>ROS control Demo</title>
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Move</h2>
+            <form  action="" method="post" role="form">
+                {{ form.csrf }}
+                <input type="submit" name="submit" class="btn" value="u">
+                <input type="submit" name="submit" class="btn" value="i">
+                <input type="submit" name="submit" class="btn" value="o">
+                <br>
+                <input type="submit" name="submit" class="btn" value="j">
+                <input type="submit" name="submit" class="btn" value="k">
+                <input type="submit" name="submit" class="btn" value="l">
+                <br>
+                <input type="submit" name="submit" class="btn" value="m">
+                <input type="submit" name="submit" class="btn" value=",">
+                <input type="submit" name="submit" class="btn" value=".">
+            </form>
+            <br>
+            <h2>Speed</h2>
+            <form  action="" method="post" role="form">
+                {{ form.csrf }}
+                <input type="submit" name="submit" class="btn" value="q">
+                <input type="submit" name="submit" class="btn" value="w">
+                <input type="submit" name="submit" class="btn" value="e">
+                <br>
+                <input type="submit" name="submit" class="btn" value="z">
+                <input type="submit" name="submit" class="btn" value="x">
+                <input type="submit" name="submit" class="btn" value="c">
+            </form>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for message in messages %}
+            {% if "Error" not in message[1]: %}
+            <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[1] }}
+            </div>
+            {% endif %}
+            {% if "Error" in message[1]: %}
+            <div class="alert alert-warning">
+                {{ message[1] }}
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+        <br>
+        </div>
+        </div>
+    </body>
+    <style>
+        .btn{
+            height:50px;
+            width:50px;
+            font-size: 200%;
+        }
+    </style>
+</html>
